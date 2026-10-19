@@ -1,0 +1,41 @@
+site_name: Modern LGP
+site_description: 可扩展、可测试的线性遗传编程框架
+site_author: Modern LGP contributors
+docs_dir: docs
+site_dir: site
+strict: true
+theme:
+  name: material
+  language: zh
+  font: false
+  palette:
+    primary: indigo
+    accent: blue
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+nav:
+  - 项目介绍: index.md
+  - 安装与开始: getting-started.md
+  - 架构与执行语义: architecture.md
+  - 参考仓库设计审查: design-review.md
+  - 原语与类型扩展: primitives.md
+  - 三种执行后端: runtimes.md
+  - 完整任务与原生仿真: tasks.md
+  - 进化与评价: evolution.md
+  - 控制任务: control.md
+  - API 参考: api.md
+  - 学习与逐文件测试: learning.md
+  - GitHub Pages 部署: deployment.md
+  - 验证记录: validation.md

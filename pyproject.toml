@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modern-lgp"
+version = "0.4.0"
+description = "Modular LGP with maintainable Python, CMake/SWIG C++ and JPype Java backends"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["linear genetic programming", "symbolic regression", "program synthesis"]
+dependencies = []
+
+[project.optional-dependencies]
+java = ["JPype1>=1.5,<2"]
+cpp = ["swig>=4.2,<5", "cmake>=3.20,<5"]
+control = ["numpy>=1.24", "gymnasium>=1.0,<2"]
+docs = ["mkdocs>=1.6,<2", "mkdocs-material>=9.5,<10"]
+test = ["pytest>=8,<10", "numpy>=1.24"]
+dev = ["JPype1>=1.5,<2", "swig>=4.2,<5", "cmake>=3.20,<5", "numpy>=1.24", "gymnasium>=1.0,<2",
+       "mkdocs>=1.6,<2", "mkdocs-material>=9.5,<10", "pytest>=8,<10", "build>=1.2", "ruff>=0.11"]
+
+[project.scripts]
+lgp = "lgp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["lgp*"]
+exclude = ["lgp.tests*"]
+
+[tool.setuptools.package-data]
+"lgp.runtime" = ["_native/cpp/CMakeLists.txt", "_native/cpp/include/lgp/*.hpp",
+                 "_native/cpp/src/*.cpp", "_native/cpp/bindings/*.i",
+                 "_native/java/src/org/modernlgp/runtime/*.java"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --import-mode=importlib"
+markers = ["cpp: requires CMake, SWIG and C++ compiler", "java: requires JPype and JDK"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E9", "F"]

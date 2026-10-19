@@ -1,0 +1,2 @@
+# Base package has no third-party Python dependency.
+-e .[dev]

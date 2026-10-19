@@ -1,0 +1,1008 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="可扩展、可测试的线性遗传编程框架">
+      
+      
+        <meta name="author" content="Modern LGP contributors">
+      
+      
+      
+        <link rel="prev" href="../api/">
+      
+      
+        <link rel="next" href="../deployment/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>学习与逐文件测试 - Modern LGP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Modern LGP" class="md-header__button md-logo" aria-label="Modern LGP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Modern LGP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              学习与逐文件测试
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Modern LGP" class="md-nav__button md-logo" aria-label="Modern LGP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Modern LGP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装与开始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    架构与执行语义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考仓库设计审查
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../primitives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原语与类型扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtimes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    三种执行后端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    完整任务与原生仿真
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进化与评价
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制任务
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习与逐文件测试
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习与逐文件测试
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python 源码与测试
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原生源码学习
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Pages 部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    验证记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python 源码与测试
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原生源码学习
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">学习路线与逐文件测试<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>推荐顺序：原语、指令、寄存器、个体、Python 执行、评价、初始化、选择、变异、交叉和进化。再阅读 runtime 的公共接口与原生桥接。</p>
+<h2 id="python">Python 源码与测试<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>源文件</th>
+<th>对应测试</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/lgp/__init__.py</code></td>
+<td><code>tests/test_init.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/__main__.py</code></td>
+<td><code>tests/test_main.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/cli.py</code></td>
+<td><code>tests/test_cli.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/config.py</code></td>
+<td><code>tests/test_config.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/evolution/__init__.py</code></td>
+<td><code>tests/evolution/test_init.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/evolution/algorithm.py</code></td>
+<td><code>tests/evolution/test_algorithm.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/evolution/crossover.py</code></td>
+<td><code>tests/evolution/test_crossover.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/evolution/initialization.py</code></td>
+<td><code>tests/evolution/test_initialization.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/evolution/mutation.py</code></td>
+<td><code>tests/evolution/test_mutation.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/evolution/population.py</code></td>
+<td><code>tests/evolution/test_population.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/evolution/selection.py</code></td>
+<td><code>tests/evolution/test_selection.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/fitness/__init__.py</code></td>
+<td><code>tests/fitness/test_init.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/fitness/evaluator.py</code></td>
+<td><code>tests/fitness/test_evaluator.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/program/__init__.py</code></td>
+<td><code>tests/program/test_init.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/program/analysis.py</code></td>
+<td><code>tests/program/test_analysis.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/program/builtins.py</code></td>
+<td><code>tests/program/test_builtins.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/program/individual.py</code></td>
+<td><code>tests/program/test_individual.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/program/instruction.py</code></td>
+<td><code>tests/program/test_instruction.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/program/primitive.py</code></td>
+<td><code>tests/program/test_primitive.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/program/register.py</code></td>
+<td><code>tests/program/test_register.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/program/serialization.py</code></td>
+<td><code>tests/program/test_serialization.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/program/spec.py</code></td>
+<td><code>tests/program/test_spec.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/runtime/__init__.py</code></td>
+<td><code>tests/runtime/test_init.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/runtime/base.py</code></td>
+<td><code>tests/runtime/test_base.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/runtime/build.py</code></td>
+<td><code>tests/runtime/test_build.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/runtime/cpp.py</code></td>
+<td><code>tests/runtime/test_cpp.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/runtime/errors.py</code></td>
+<td><code>tests/runtime/test_errors.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/runtime/interpreter.py</code></td>
+<td><code>tests/runtime/test_interpreter.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/runtime/java.py</code></td>
+<td><code>tests/runtime/test_java.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/runtime/native.py</code></td>
+<td><code>tests/runtime/test_native.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/runtime/registry.py</code></td>
+<td><code>tests/runtime/test_registry.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/tasks/__init__.py</code></td>
+<td><code>tests/tasks/test_init.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/tasks/base.py</code></td>
+<td><code>tests/tasks/test_base.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/tasks/native_tasks.py</code></td>
+<td><code>tests/tasks/test_native_tasks.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/tasks/control.py</code></td>
+<td><code>tests/tasks/test_control.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/tasks/symbolic_regression.py</code></td>
+<td><code>tests/tasks/test_symbolic_regression.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/utils/__init__.py</code></td>
+<td><code>tests/utils/test_init.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/utils/logger.py</code></td>
+<td><code>tests/utils/test_logger.py</code></td>
+</tr>
+<tr>
+<td><code>src/lgp/utils/random.py</code></td>
+<td><code>tests/utils/test_random.py</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>对应测试</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>examples/backends.py</code></td>
+<td><code>tests/examples/test_backends.py</code></td>
+</tr>
+<tr>
+<td><code>examples/basic_execution.py</code></td>
+<td><code>tests/examples/test_basic_execution.py</code></td>
+</tr>
+<tr>
+<td><code>examples/control.py</code></td>
+<td><code>tests/examples/test_control.py</code></td>
+</tr>
+<tr>
+<td><code>examples/native_simulation.py</code></td>
+<td><code>tests/examples/test_native_simulation.py</code></td>
+</tr>
+<tr>
+<td><code>examples/custom_primitive.py</code></td>
+<td><code>tests/examples/test_custom_primitive.py</code></td>
+</tr>
+<tr>
+<td><code>examples/symbolic_regression.py</code></td>
+<td><code>tests/examples/test_symbolic_regression.py</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">原生源码学习<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>先读 <code>_native/cpp/include/lgp/primitive.hpp</code> 与 <code>registry.hpp</code>，再读 <code>src/primitives.cpp</code>、<code>src/extensions.cpp</code>、<code>src/registry.cpp</code> 和 <code>src/interpreter.cpp</code>。最后阅读 <code>bindings/lgp_runtime.i</code> 与 <code>CMakeLists.txt</code>，理解 SWIG 和 CMake 的职责。</p>
+<p>C++ 每个实现文件都有根目录 <code>tests/native/cpp/test_*.cpp</code>，头文件由相同主题的测试覆盖。绑定层由 <code>tests/runtime/test_cpp.py</code> 检验直接调用时的参数和数值错误。</p>
+<p>Java 按 <code>ScalarPrimitive → PrimitiveRegistry → CorePrimitives / ExtensionPrimitives → ScalarInterpreter</code> 阅读，每个 Java 源文件在根目录 <code>tests/native/java/org/modernlgp/runtime</code> 有对应 <code>Test*.java</code>。它们不依赖 JUnit，可用 java 命令直接运行。</p>
+<p><code>tests/runtime/test_source_mapping.py</code> 检查原生实现与测试对应关系，<code>tests/test_test_mapping.py</code> 检查 Python 文件与学习测试对应关系。</p>
+<p>0.4 继续阅读 C++ prepared.hpp/prepared.cpp 与 tasks.hpp/tasks.cpp，Java PreparedProgram、RegressionTask、PointMassTask；每个实现仍有 tests/native 下的独立测试。先对照 Python PointMassTask 的积分方程，再阅读原生 score 循环，最后看 Python score_task 如何只跨语言调用一次。</p>
+<h2 id="_4">运行<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/program/test_primitive.py<span class="w"> </span>-v
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/runtime/test_registry.py<span class="w"> </span>-v
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/runtime/test_build.py<span class="w"> </span>-v
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/runtime/test_conformance.py<span class="w"> </span>-v
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q
+</code></pre></div>
+<p>后端工具链缺失时集成测试会显示 SKIPPED。扩展测试实际复制原生源码并改变注册的原语名称，再用同一 Python 适配器构建和执行；重新构建测试检查同进程的新实例能够调用新二进制，旧实例保持原执行语义。</p>
+<p>原生函数、Python 函数和跨语言转换应分别理解。框架可运行不代表复杂控制任务的效果已经验证。评价次数、缓存命中和环境交互步数要分开记录。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,148 @@
+# =========================
+# Python cache
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+ENV/
+test/
+.conda/
+
+# =========================
+# Build / packaging
+# =========================
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+
+# =========================
+# IDE / editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# 私有配置文件，不上传
+configs/private*.yaml
+configs/private*.yml
+configs/local*.yaml
+configs/local*.yml
+configs/*secret*.yaml
+configs/*secret*.yml
+
+# =========================
+# Data files
+# =========================
+data/raw/
+data/interim/
+data/processed/
+data/external/
+
+# 如果你想保留空目录结构，可以用 .gitkeep
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# =========================
+# Outputs
+# =========================
+outputs/
+results/
+runs/
+logs/
+*.log
+
+!outputs/.gitkeep
+!outputs/solutions/.gitkeep
+!outputs/figures/.gitkeep
+!outputs/logs/.gitkeep
+
+# =========================
+# Model checkpoints / large numerical files
+# =========================
+models/checkpoints/
+models/final/
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.joblib
+*.h5
+*.onnx
+
+!models/.gitkeep
+!models/checkpoints/.gitkeep
+!models/final/.gitkeep
+
+# =========================
+# Numerical / scientific output
+# =========================
+*.npy
+*.npz
+*.mat
+*.hdf5
+*.nc
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+.cache/
+
+# =========================
+# Project-specific
+# =========================
+*.pdf
+*.docx
+*.pptx
+
+# 如果你有论文样例想上传，可以单独放 examples/
+# !examples/
+# !examples/**
+
+# =========================
+# Lock files
+# =========================
+# 如果你用 poetry/uv，建议保留 lock 文件，不要忽略
+# poetry.lock
+# uv.lock
+share
+
+**/.DS_Store
+**/._.DS_Store
